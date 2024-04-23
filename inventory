@@ -1,2 +1,2 @@
 192.168.1.120 ansible_ssh_user=node02
-192.168.1.130 ansible_ssh_user=node03
+192.168.1.110 ansible_ssh_user=node03
