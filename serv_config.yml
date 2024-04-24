@@ -1,0 +1,42 @@
+---
+  
+- hosts: webservers
+  become: true
+  tasks:
+  - name: Install apache2 and PHP for Ubuntu Servers
+    apt:
+      name:
+        - apache2
+        - libapache2-mod-php
+      state: latest
+      update_cache: yes
+    when: ansible_distribution == "Ubuntu"
+
+
+
+- hosts: dbservers
+  become: true
+  tasks:
+
+  - name: Install MariaDB package
+    dnf:
+      name: mariadb
+      state: latest
+    when: ansible_distribution == "OracleLinux"
+
+
+  - name: Install MariahDB package
+    dnf:
+      name: mariadb-server
+      state: latest
+    when: ansible_distribution == "OracleLinux"
+
+- hosts: fileservers
+  become: true
+  tasks:
+
+  - name: Install Samba package
+    package:
+      name: samba
+      state: latest
+
